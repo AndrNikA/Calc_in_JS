@@ -75,7 +75,7 @@
 	border-color:#A62421;
 	color:#FFF1AA;
 }
-@media (max-width: 400px) {
+@media (max-width: 400px) {/**Адаптивность калькулятора**/
 	.calc{
 		width:95%;
 	}

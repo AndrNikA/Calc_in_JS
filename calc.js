@@ -1,9 +1,9 @@
-﻿var calc=document.querySelector('.calc');
+﻿var calc=document.querySelector('.calc'); 
 var out=document.querySelector('.calc_input');
-var check=false;
+var check=false; //Флаг для раскрытия дополнительных кнопок
 var val="";
 
-let calc_mouse=document.querySelector('.calc');
+let calc_mouse=document.querySelector('.calc'); //Hover для кнопок
 calc_mouse.addEventListener('mouseover',function(event){
 	if (event.target.tagName=="BUTTON"){
 		event.target.classList.add("hover_one");
@@ -15,12 +15,13 @@ calc_mouse.addEventListener('mouseout',function(event){
 		event.target.classList.remove("hover_one");
 	}
 });
-calc.addEventListener("click",function(event){
+
+calc.addEventListener("click",function(event){ //События клика внутри блока калькулятора
 	calc1();
 	calc2();
 });
 
-function result(){
+function result(){ //Проверка на присутствие факториала
 	val=out.value;
 	if(val.includes("!")){
 		fact();
@@ -29,7 +30,7 @@ function result(){
 	else printinput();
 }
 
-function printinput(){
+function printinput(){//Вывод результата в Input
 	try
 	{
 		out.value=eval(val);
@@ -42,7 +43,7 @@ function printinput(){
 }
 
 
-function calc1(){
+function calc1(){//Обработка нажатий функционала
 	if (event.target.innerHTML==='C') out.value="";
 	else if (event.target.innerHTML==='=') {
 		result();
@@ -72,7 +73,7 @@ function calc1(){
 	if (event.target.innerHTML==="&lt;&lt;") out.value=out.value.slice(0,-1);
 }
 
-function calc2(){
+function calc2(){//Обработка ввода дополнительных кнопок
 	switch(event.target.innerHTML){
 		case 'x^y':
 			out.value+="**";
@@ -122,12 +123,11 @@ function calc2(){
 	}
 }
 
-function fact(){
+function fact(){ //Вычисление значений скобок
 	let end=0;//Индексы поиска факториала
 	let ind=0;
 	let endsc=0;//Индексы поиска скобок
 	let indsc=0;
-	let sch=0;
 	let flag=false;
 	let textsc="";
 	let textscresult=0;
@@ -167,7 +167,7 @@ function fact(){
 	factresult();
 }
 
-function factresult(){
+function factresult(){//Вычисление факториалов 
 	do{
 		end=0;
 		ind=0;
@@ -201,12 +201,12 @@ function factresult(){
 	while (flag);
 }
 
-function error(){
+function error(){//Вывод блока ошибки 
 	if(document.querySelector('.error')==null)
 		calc.insertAdjacentHTML("beforeend",'<div class="error">Произошла ошибка! Проверьте правильность написания</div>');
 
 }
-function errorout(){
+function errorout(){//Скрытие блока ошибки
 	if(document.querySelector('.error')!=null)
 		document.querySelector('.error').remove();
 }
