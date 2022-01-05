@@ -1,4 +1,5 @@
-﻿var calc=document.querySelector('.calc'); 
+﻿{
+var calc=document.querySelector('.calc'); 
 var out=document.querySelector('.calc_input');
 var check=false; //Флаг для раскрытия дополнительных кнопок
 var val="";
@@ -210,3 +211,4 @@ function errorout(){//Скрытие блока ошибки
 	if(document.querySelector('.error')!=null)
 		document.querySelector('.error').remove();
 }
+};
